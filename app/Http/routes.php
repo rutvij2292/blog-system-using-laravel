@@ -20,6 +20,8 @@ Route::get('/', 'PagesController@getIndex');
 
 	Route::resource('post', 'PostController');
 
+	Route::get('blog/{slug}', ['as'=> 'blog.single', 'uses'=>'BlogController@getSingle'])->where('slug', '[\w\d\-\_]+');
+
 
 Route::group(['middleware'=> ['web']], function(){
 
